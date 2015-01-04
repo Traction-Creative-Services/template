@@ -1,0 +1,12 @@
+| -----------------------------------------------
+| Traction Creative Site Documentation
+| Document: Third Party Libraries
+| Author: Martin Sheeks <martin@traction.media>
+| Revision: 1
+| Date: 1/1/2015
+|
+| -----------------------------------------------
+
+Jquery Flip Library: http://lab.smashup.it/flip/
+Jquery Lighbox Library: http://noelboss.github.io/featherlight/
+Jquery Slideshow Library: http://slippry.com/

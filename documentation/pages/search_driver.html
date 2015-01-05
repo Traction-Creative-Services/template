@@ -1,0 +1,44 @@
+<article class="page" id="search">
+    <header>
+        <h2>Search Driver</h2>
+    </header>
+    <h3>Indexing A Site</h3>
+    <p>before initializing the search object on a site for jQuery, you will need to provide the site with a page and database index. You can do this by going to dev.traction.media/[USERNAME]/[PROJECT]/tc_utils/search</p>
+    <p class="lead">Providing a site map to be indexed</p>
+    <p>TC Search takes a JSON string in for providing a map to the site and its data. The map follows the format below</p>
+    <pre>
+    {
+        "pages":
+            {
+                "[PATH_TO_PAGE]": "html,elements,to,be,indexed,by,id"
+            },
+        "tables":
+            {
+                "[TABLE_NAME]":
+                    {
+                        "title_field":"[TITLE_FIELD_COLUMN_NAME]",
+                        "url_pattern":"[URL_PATTERN]",
+                        "slug_field":"[SLUG_FIELD_COLUMN_NAME]",
+                        "fields":"fields,to,index,from,table"
+                    }
+            }
+    }
+    </pre>
+    <p class="lead">Variables in the JSON Map</p>
+    <p>
+        <var>PATH_TO_PAGE</var>: should be the URL path to the page. For example, http://example.com/home/about would be <var>home/about</var>.<br />
+        <var>TITLE_FIELD_COLUMN_NAME</var>: the name of the column to be used for the display title of each page in search results.<br />
+        <var>URL_PATTERN</var>: the pattern to be used by the search driver to generate links for pages from this table. See below.<br />
+        <var>SLUG_FIELD_COLUMN_NAME</var>: the name of the column to be used for the slug in the <var>URL_PATTERN</var>.
+    </p>
+    <p class="lead">URL Pattern for Database Driven Pages</p>
+    <p>The Search Driver uses a pattern provided in the map to generate links for database driven content. To specify a URL pattern for a table, provide the path for the page, using <var>~SLUG~</var> as a place holder for the slug variable.</p>
+    <p>For example. If you have a blog, and you use the <var>post-slug</var> column in your database to generate the url, you would follow a pattern like below</p>
+    <pre>
+    "post/~SLUG~"
+    </pre>
+    <p>If your website is http://acme.com, and your post slug is <var>a-new-anvil</var>, then the result from the pattern would be http://acme.com/post/a-new-anvil.</p>
+    <p class="lead">Auto-Indexing Static Pages</p>
+    <div class="alert alert-danger">WARNING: Auto-indexing can take a long time for large sites, be patient.</div>
+    <p>The TC Search Driver provides an auto-index function for all static pages. Checking this box will search all files in the <var>views/pages</var> directory for HTML elements marked with <var>class="tc-searchable"</var>.</p>
+</article>

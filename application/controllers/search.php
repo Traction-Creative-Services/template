@@ -199,7 +199,7 @@ class Search extends TC_Controller {
                         $searchable .= $row->$field;
                     }
                     $title = $row->$titleField;
-                    $url = str_replace('~SLUG~',$row->$slugField, $table->urlPattern);
+                    $url = str_replace('~SLUG~',$row->$slugField, $table->url_pattern);
                     
                     //build the entry array
                     $entry = array(
